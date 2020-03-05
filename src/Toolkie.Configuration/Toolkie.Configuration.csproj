@@ -5,6 +5,7 @@
     <Authors>Mikhail Vazhenin</Authors>
     <PackageTags>appconfig</PackageTags>
     <Description>Extensions for configuration</Description>
+    <Version>1.0.0</Version>
   </PropertyGroup>
 
   <ItemGroup>
