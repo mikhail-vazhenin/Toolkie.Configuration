@@ -11,7 +11,7 @@ namespace Toolkie.Configuration.Settings
 {
     public static class SettingExtensions
     {
-        internal static IWebHostBuilder UseToolkieConfiguration(this IWebHostBuilder webHostBuilder, string[] args)
+        public static IWebHostBuilder UseToolkieConfiguration(this IWebHostBuilder webHostBuilder, string[] args)
         {
             return webHostBuilder.ConfigureAppConfiguration((hostingContext, config) =>
             {
