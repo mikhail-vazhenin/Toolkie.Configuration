@@ -2,6 +2,9 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
+    <Authors>Mikhail Vazhenin</Authors>
+    <PackageTags>appconfig</PackageTags>
+    <Description>Extensions for configuration</Description>
   </PropertyGroup>
 
   <ItemGroup>
