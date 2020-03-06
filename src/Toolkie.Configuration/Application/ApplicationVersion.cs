@@ -4,6 +4,8 @@ using System.Diagnostics;
 using System.IO;
 using System.Reflection;
 using System.Text;
+using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Http;
 
 namespace Toolkie.Configuration.Application
 {
@@ -36,6 +38,11 @@ namespace Toolkie.Configuration.Application
             {
                 return Assembly.GetEntryAssembly().GetName().Name;
             }
+        }
+
+        public static void UseInfoPage(this IApplicationBuilder app)
+        {
+            app.Map("/info", p => p.Run(async context => await context.Response.WriteAsync($"{ProjectName} v.{InformationalVersion} on {ReleaseDate.ToShortDateString()}")));
         }
     }
 }
