@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <Authors>Mikhail Vazhenin</Authors>
-    <PackageTags>appconfig</PackageTags>
+    <PackageTags>Toolkie;appconfig</PackageTags>
     <Description>Extensions for configuration</Description>
     <Version>1.0.3</Version>
     <RepositoryUrl>https://github.com/mikhail-vazhenin/Toolkie.Configuration</RepositoryUrl>
