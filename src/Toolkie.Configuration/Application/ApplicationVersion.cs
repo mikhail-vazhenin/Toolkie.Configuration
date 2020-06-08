@@ -31,7 +31,6 @@ namespace Toolkie.Configuration.Application
             }
         }
 
-
         public static string ProjectName
         {
             get
@@ -42,7 +41,7 @@ namespace Toolkie.Configuration.Application
 
         public static void UseInfoPage(this IApplicationBuilder app)
         {
-            app.Map("/info", p => p.Run(async context => await context.Response.WriteAsync($"{ProjectName} v.{InformationalVersion} on {ReleaseDate.ToShortDateString()}")));
+            app.Map("/info", p => p.Run(async context => await context.Response.WriteAsync($"{ProjectName} v.{InformationalVersion} on {ReleaseDate.ToShortDateString()}").ConfigureAwait(false)));
         }
     }
 }

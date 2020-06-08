@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Reflection;
-using System.Text;
-using Microsoft.AspNetCore.Hosting;
+﻿using System.Reflection;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Configuration.Json;
 using Microsoft.Extensions.Hosting;
@@ -11,9 +7,9 @@ namespace Toolkie.Configuration.Settings
 {
     public static class SettingExtensions
     {
-        public static IWebHostBuilder UseToolkieConfiguration(this IWebHostBuilder webHostBuilder, string[] args)
+        public static IHostBuilder UseToolkieConfiguration(this IHostBuilder hostBuilder, string[] args)
         {
-            return webHostBuilder.ConfigureAppConfiguration((hostingContext, config) =>
+            return hostBuilder.ConfigureAppConfiguration((hostingContext, config) =>
             {
                 config.AddAppSettings(hostingContext.HostingEnvironment);
                 config.AddUserSecrets(hostingContext.HostingEnvironment);
@@ -24,7 +20,7 @@ namespace Toolkie.Configuration.Settings
             });
         }
 
-        private static void AddAppSettings(this IConfigurationBuilder config, IWebHostEnvironment hostingEnvironment)
+        private static void AddAppSettings(this IConfigurationBuilder config, IHostEnvironment hostingEnvironment)
         {
             var environmentName = hostingEnvironment.EnvironmentName;
 
@@ -32,7 +28,7 @@ namespace Toolkie.Configuration.Settings
                 .AddJsonFile($"appsettings.{environmentName}.json", true, true);
         }
 
-        private static void AddUserSecrets(this IConfigurationBuilder config, IWebHostEnvironment hostingEnvironment)
+        private static void AddUserSecrets(this IConfigurationBuilder config, IHostEnvironment hostingEnvironment)
         {
             if (hostingEnvironment.IsDevelopment()) // different providers in dev
             {
