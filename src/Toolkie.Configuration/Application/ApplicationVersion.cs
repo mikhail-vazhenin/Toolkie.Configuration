@@ -39,9 +39,9 @@ namespace Toolkie.Configuration.Application
             }
         }
 
-        public static void UseInfoPage(this IApplicationBuilder app)
+        public static void UseInfoPage(this IApplicationBuilder app, string path = "/info")
         {
-            app.Map("/info", p => p.Run(async context => await context.Response.WriteAsync($"{ProjectName} v.{InformationalVersion} on {ReleaseDate.ToShortDateString()}").ConfigureAwait(false)));
+            app.Map(path, p => p.Run(async context => await context.Response.WriteAsync($"{ProjectName} v.{InformationalVersion} on {ReleaseDate.ToShortDateString()}").ConfigureAwait(false)));
         }
     }
 }
